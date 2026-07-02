@@ -1,0 +1,248 @@
+import type { Line, Station } from "../types";
+
+/**
+ * Hong Kong MTR network definition.
+ *
+ * Line codes & station codes match the MTR "Next Train" API
+ * (https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php).
+ * Station colours are the official MTR line colours.
+ */
+export const LINES: Line[] = [
+  {
+    code: "ISL",
+    name: "Island Line",
+    nameZh: "港島綫",
+    shortName: "Island",
+    shortNameZh: "港島",
+    color: "#007DC5",
+    stations: [
+      { code: "KET", name: "Kennedy Town", nameZh: "堅尼地城", seq: 1 },
+      { code: "HKU", name: "HKU", nameZh: "香港大學", seq: 2 },
+      { code: "SYP", name: "Sai Ying Pun", nameZh: "西營盤", seq: 3 },
+      { code: "SHW", name: "Sheung Wan", nameZh: "上環", seq: 4 },
+      { code: "CEN", name: "Central", nameZh: "中環", seq: 5 },
+      { code: "ADM", name: "Admiralty", nameZh: "金鐘", seq: 6 },
+      { code: "WAC", name: "Wan Chai", nameZh: "灣仔", seq: 7 },
+      { code: "CAB", name: "Causeway Bay", nameZh: "銅鑼灣", seq: 8 },
+      { code: "TIH", name: "Tin Hau", nameZh: "天后", seq: 9 },
+      { code: "FOH", name: "Fortress Hill", nameZh: "炮台山", seq: 10 },
+      { code: "NOP", name: "North Point", nameZh: "北角", seq: 11 },
+      { code: "QUB", name: "Quarry Bay", nameZh: "鰂魚涌", seq: 12 },
+      { code: "TAK", name: "Tai Koo", nameZh: "太古", seq: 13 },
+      { code: "SWH", name: "Sai Wan Ho", nameZh: "西灣河", seq: 14 },
+      { code: "SKW", name: "Shau Kei Wan", nameZh: "筲箕灣", seq: 15 },
+      { code: "HFC", name: "Heng Fa Chuen", nameZh: "杏花邨", seq: 16 },
+      { code: "CHW", name: "Chai Wan", nameZh: "柴灣", seq: 17 },
+    ],
+  },
+  {
+    code: "TWL",
+    name: "Tsuen Wan Line",
+    nameZh: "荃灣綫",
+    shortName: "Tsuen Wan",
+    shortNameZh: "荃灣",
+    color: "#ED1D24",
+    stations: [
+      { code: "CEN", name: "Central", nameZh: "中環", seq: 1 },
+      { code: "ADM", name: "Admiralty", nameZh: "金鐘", seq: 2 },
+      { code: "TST", name: "Tsim Sha Tsui", nameZh: "尖沙咀", seq: 3 },
+      { code: "JOR", name: "Jordan", nameZh: "佐敦", seq: 4 },
+      { code: "YMT", name: "Yau Ma Tei", nameZh: "油麻地", seq: 5 },
+      { code: "MOK", name: "Mong Kok", nameZh: "旺角", seq: 6 },
+      { code: "PRE", name: "Prince Edward", nameZh: "太子", seq: 7 },
+      { code: "SSP", name: "Sham Shui Po", nameZh: "深水埗", seq: 8 },
+      { code: "CSW", name: "Cheung Sha Wan", nameZh: "長沙灣", seq: 9 },
+      { code: "LCK", name: "Lai Chi Kok", nameZh: "荔枝角", seq: 10 },
+      { code: "MEF", name: "Mei Foo", nameZh: "美孚", seq: 11 },
+      { code: "LAK", name: "Lai King", nameZh: "荔景", seq: 12 },
+      { code: "KWF", name: "Kwai Fong", nameZh: "葵芳", seq: 13 },
+      { code: "KWH", name: "Kwai Hing", nameZh: "葵興", seq: 14 },
+      { code: "TWH", name: "Tai Wo Hau", nameZh: "大窩口", seq: 15 },
+      { code: "TSW", name: "Tsuen Wan", nameZh: "荃灣", seq: 16 },
+    ],
+  },
+  {
+    code: "KTL",
+    name: "Kwun Tong Line",
+    nameZh: "觀塘綫",
+    shortName: "Kwun Tong",
+    shortNameZh: "觀塘",
+    color: "#00AB4E",
+    stations: [
+      { code: "WHA", name: "Whampoa", nameZh: "黃埔", seq: 1 },
+      { code: "HOM", name: "Ho Man Tin", nameZh: "何文田", seq: 2 },
+      { code: "YMT", name: "Yau Ma Tei", nameZh: "油麻地", seq: 3 },
+      { code: "MOK", name: "Mong Kok", nameZh: "旺角", seq: 4 },
+      { code: "PRE", name: "Prince Edward", nameZh: "太子", seq: 5 },
+      { code: "SKM", name: "Shek Kip Mei", nameZh: "石硤尾", seq: 6 },
+      { code: "KOT", name: "Kowloon Tong", nameZh: "九龍塘", seq: 7 },
+      { code: "LOF", name: "Lok Fu", nameZh: "樂富", seq: 8 },
+      { code: "WTS", name: "Wong Tai Sin", nameZh: "黃大仙", seq: 9 },
+      { code: "DIH", name: "Diamond Hill", nameZh: "鑽石山", seq: 10 },
+      { code: "CHH", name: "Choi Hung", nameZh: "彩虹", seq: 11 },
+      { code: "KOB", name: "Kowloon Bay", nameZh: "九龍灣", seq: 12 },
+      { code: "NTK", name: "Ngau Tau Kok", nameZh: "牛頭角", seq: 13 },
+      { code: "KWT", name: "Kwun Tong", nameZh: "觀塘", seq: 14 },
+      { code: "LAT", name: "Lam Tin", nameZh: "藍田", seq: 15 },
+      { code: "YAT", name: "Yau Tong", nameZh: "油塘", seq: 16 },
+      { code: "TIK", name: "Tiu Keng Leng", nameZh: "調景嶺", seq: 17 },
+    ],
+  },
+  {
+    code: "TKL",
+    name: "Tseung Kwan O Line",
+    nameZh: "將軍澳綫",
+    shortName: "Tseung Kwan O",
+    shortNameZh: "將軍澳",
+    color: "#7D499D",
+    stations: [
+      { code: "NOP", name: "North Point", nameZh: "北角", seq: 1 },
+      { code: "QUB", name: "Quarry Bay", nameZh: "鰂魚涌", seq: 2 },
+      { code: "YAT", name: "Yau Tong", nameZh: "油塘", seq: 3 },
+      { code: "TIK", name: "Tiu Keng Leng", nameZh: "調景嶺", seq: 4 },
+      { code: "TKO", name: "Tseung Kwan O", nameZh: "將軍澳", seq: 5 },
+      { code: "HAH", name: "Hang Hau", nameZh: "坑口", seq: 6 },
+      { code: "POA", name: "Po Lam", nameZh: "寶琳", seq: 7 },
+      { code: "LHP", name: "LOHAS Park", nameZh: "康城", seq: 8 },
+    ],
+  },
+  {
+    code: "EAL",
+    name: "East Rail Line",
+    nameZh: "東鐵綫",
+    shortName: "East Rail",
+    shortNameZh: "東鐵",
+    color: "#53B7E8",
+    stations: [
+      { code: "ADM", name: "Admiralty", nameZh: "金鐘", seq: 1 },
+      { code: "EXC", name: "Exhibition Centre", nameZh: "會展", seq: 2 },
+      { code: "HUH", name: "Hung Hom", nameZh: "紅磡", seq: 3 },
+      { code: "MKK", name: "Mong Kok East", nameZh: "旺角東", seq: 4 },
+      { code: "KOT", name: "Kowloon Tong", nameZh: "九龍塘", seq: 5 },
+      { code: "TAW", name: "Tai Wai", nameZh: "大圍", seq: 6 },
+      { code: "SHT", name: "Sha Tin", nameZh: "沙田", seq: 7 },
+      { code: "FOT", name: "Fo Tan", nameZh: "火炭", seq: 8 },
+      { code: "UNI", name: "University", nameZh: "大學", seq: 9 },
+      { code: "TAP", name: "Tai Po Market", nameZh: "大埔墟", seq: 10 },
+      { code: "TWO", name: "Tai Wo", nameZh: "太和", seq: 11 },
+      { code: "FAN", name: "Fanling", nameZh: "粉嶺", seq: 12 },
+      { code: "SHS", name: "Sheung Shui", nameZh: "上水", seq: 13 },
+      { code: "LOW", name: "Lo Wu", nameZh: "羅湖", seq: 14 },
+      { code: "LMC", name: "Lok Ma Chau", nameZh: "落馬洲", seq: 15 },
+    ],
+  },
+  {
+    code: "TML",
+    name: "Tuen Ma Line",
+    nameZh: "屯馬綫",
+    shortName: "Tuen Ma",
+    shortNameZh: "屯馬",
+    color: "#923011",
+    stations: [
+      { code: "WKS", name: "Wu Kai Sha", nameZh: "烏溪沙", seq: 1 },
+      { code: "MOS", name: "Ma On Shan", nameZh: "馬鞍山", seq: 2 },
+      { code: "HEO", name: "Heng On", nameZh: "恆安", seq: 3 },
+      { code: "TSH", name: "Tai Shui Hang", nameZh: "大水坑", seq: 4 },
+      { code: "SHM", name: "Shek Mun", nameZh: "石門", seq: 5 },
+      { code: "CIO", name: "City One", nameZh: "第一城", seq: 6 },
+      { code: "STW", name: "Sha Tin Wai", nameZh: "沙田圍", seq: 7 },
+      { code: "CKT", name: "Che Kung Temple", nameZh: "車公廟", seq: 8 },
+      { code: "TAW", name: "Tai Wai", nameZh: "大圍", seq: 9 },
+      { code: "HIK", name: "Hin Keng", nameZh: "顯徑", seq: 10 },
+      { code: "DIH", name: "Diamond Hill", nameZh: "鑽石山", seq: 11 },
+      { code: "KAT", name: "Kai Tak", nameZh: "啟德", seq: 12 },
+      { code: "SUW", name: "Sung Wong Toi", nameZh: "宋皇臺", seq: 13 },
+      { code: "TKW", name: "To Kwa Wan", nameZh: "土瓜灣", seq: 14 },
+      { code: "HOM", name: "Ho Man Tin", nameZh: "何文田", seq: 15 },
+      { code: "HUH", name: "Hung Hom", nameZh: "紅磡", seq: 16 },
+      { code: "ETS", name: "East Tsim Sha Tsui", nameZh: "尖東", seq: 17 },
+      { code: "AUS", name: "Austin", nameZh: "柯士甸", seq: 18 },
+      { code: "NAC", name: "Nam Cheong", nameZh: "南昌", seq: 19 },
+      { code: "MEF", name: "Mei Foo", nameZh: "美孚", seq: 20 },
+      { code: "TWW", name: "Tsuen Wan West", nameZh: "荃灣西", seq: 21 },
+      { code: "KSR", name: "Kam Sheung Road", nameZh: "錦上路", seq: 22 },
+      { code: "YUL", name: "Yuen Long", nameZh: "元朗", seq: 23 },
+      { code: "LOP", name: "Long Ping", nameZh: "朗屏", seq: 24 },
+      { code: "TIS", name: "Tin Shui Wai", nameZh: "天水圍", seq: 25 },
+      { code: "SIH", name: "Siu Hong", nameZh: "兆康", seq: 26 },
+      { code: "TUM", name: "Tuen Mun", nameZh: "屯門", seq: 27 },
+    ],
+  },
+  {
+    code: "TCL",
+    name: "Tung Chung Line",
+    nameZh: "東涌綫",
+    shortName: "Tung Chung",
+    shortNameZh: "東涌",
+    color: "#F7943E",
+    stations: [
+      { code: "HOK", name: "Hong Kong", nameZh: "香港", seq: 1 },
+      { code: "KOW", name: "Kowloon", nameZh: "九龍", seq: 2 },
+      { code: "OLY", name: "Olympic", nameZh: "奧運", seq: 3 },
+      { code: "NAC", name: "Nam Cheong", nameZh: "南昌", seq: 4 },
+      { code: "LAK", name: "Lai King", nameZh: "荔景", seq: 5 },
+      { code: "TSY", name: "Tsing Yi", nameZh: "青衣", seq: 6 },
+      { code: "SUN", name: "Sunny Bay", nameZh: "欣澳", seq: 7 },
+      { code: "TUC", name: "Tung Chung", nameZh: "東涌", seq: 8 },
+    ],
+  },
+  {
+    code: "SIL",
+    name: "South Island Line",
+    nameZh: "南港島綫",
+    shortName: "South Island",
+    shortNameZh: "南港島",
+    color: "#BAC429",
+    stations: [
+      { code: "ADM", name: "Admiralty", nameZh: "金鐘", seq: 1 },
+      { code: "OCP", name: "Ocean Park", nameZh: "海洋公園", seq: 2 },
+      { code: "WCH", name: "Wong Chuk Hang", nameZh: "黃竹坑", seq: 3 },
+      { code: "LET", name: "Lei Tung", nameZh: "利東", seq: 4 },
+      { code: "SOH", name: "South Horizons", nameZh: "海怡半島", seq: 5 },
+    ],
+  },
+  {
+    code: "AEL",
+    name: "Airport Express",
+    nameZh: "機場快綫",
+    shortName: "Airport Express",
+    shortNameZh: "機場快綫",
+    color: "#00888A",
+    stations: [
+      { code: "HOK", name: "Hong Kong", nameZh: "香港", seq: 1 },
+      { code: "KOW", name: "Kowloon", nameZh: "九龍", seq: 2 },
+      { code: "TSY", name: "Tsing Yi", nameZh: "青衣", seq: 3 },
+      { code: "AIR", name: "Airport", nameZh: "機場", seq: 4 },
+      { code: "AWE", name: "AsiaWorld-Expo", nameZh: "博覽館", seq: 5 },
+    ],
+  },
+  {
+    code: "DRL",
+    name: "Disneyland Resort Line",
+    nameZh: "迪士尼綫",
+    shortName: "Disneyland",
+    shortNameZh: "迪士尼",
+    color: "#F173AC",
+    stations: [
+      { code: "SUN", name: "Sunny Bay", nameZh: "欣澳", seq: 1 },
+      { code: "DIS", name: "Disneyland Resort", nameZh: "迪士尼", seq: 2 },
+    ],
+  },
+];
+
+/** Map of every station code -> station (first line that contains it wins). */
+export const STATION_MAP: Record<string, Station> = (() => {
+  const map: Record<string, Station> = {};
+  for (const line of LINES) {
+    for (const st of line.stations) {
+      if (!map[st.code]) map[st.code] = st;
+    }
+  }
+  return map;
+})();
+
+export function stationName(code: string, lang: "en" | "zh"): string {
+  const s = STATION_MAP[code];
+  if (!s) return code;
+  return lang === "zh" ? s.nameZh : s.name;
+}
